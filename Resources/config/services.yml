@@ -1,0 +1,14 @@
+parameters:
+#    gt_black_list.example.class: GT\BlackListBundle\Example
+ 
+parameters:
+    gt_black_list.class.eventlistener: GT\BlackListBundle\EventListener\BlackListEventListener
+    
+services:
+    gt_black_list.listener.kernel.request:
+        class: %gt_black_list.class.eventlistener%
+        arguments: ["@service_container"]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onRequestEvent }
+
+

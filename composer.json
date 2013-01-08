@@ -1,0 +1,25 @@
+{
+    "name": "gerardtoko/blacklist-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony bundle for the Black list IP in your application",
+    "keywords": ["blacklist", "symfony","bundle"],
+    "homepage": "https://github.com/gerardtoko/GTBlackListBundle",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+    {
+	"name": "Gerardtoko",
+	"homepage": "http://www.gerardtoko.com"
+    }
+    ],
+    "require": {
+	"php":                      ">=5.3.2",
+	"symfony/framework-bundle": ">=2.0.14,<2.3-dev"
+    },
+    "autoload": {
+	"psr-0": {
+	    "GT\\BlackListBundle": ""
+	}
+    },
+    "target-dir": "GT/BlackListBundle"
+}
