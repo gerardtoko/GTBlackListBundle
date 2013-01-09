@@ -43,7 +43,6 @@ class BlackListProvider implements InterfaceBlackListPorvider
 
     protected $container;
 
-
     /**
      * 
      * @param \GT\BlackListBundle\Tests\Provider\ContainerInterface $container
@@ -52,7 +51,6 @@ class BlackListProvider implements InterfaceBlackListPorvider
     {
 	$this->container = $container;
     }
-
 
     /**
      * 
