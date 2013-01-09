@@ -66,10 +66,9 @@ class BlackListEventListener
 		break;
 
 	    case "array":
-		if (empty($config["data"])) {
-		    throw new \Exception("Undefined 'data' parameter in gt_black_list configuration");
+		if (!empty($config["data"])) {
+		    $this->isAccessDenied($config["data"]);
 		}
-		$this->isAccessDenied($config["data"]);
 		break;
 	}
     }
