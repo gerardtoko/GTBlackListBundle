@@ -101,7 +101,7 @@ class BlackListProvider implements InterfaceBlackListPorvider
     public function getData()
     {
 	//put your code here
-	//the datas can come of doctrine, propel etc...
+	//the data can come of doctrine, propel etc...
 	return array("145.34.89.123", "145.34.134.23");
     }
 
