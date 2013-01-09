@@ -8,7 +8,7 @@ Symfony bundle for the Black list IP in your application
 
 ### Select Provider Array
 Example of configuration file yml:
-```
+```yml
 gt_black_list:
     provider: array
     data: ["145.34.89.123", "145.34.134.23"]
@@ -18,14 +18,14 @@ gt_black_list:
 The provider class must implement ```InterfaceBlackListProvider```.
 The InterfaceBlackListProvider require the ```getData``` method for receive the datas. the ```getData``` Method must be returned a array.
 Example of configuration file yml:
-```
+```yml 
 gt_black_list:
     provider: class
     class: Acme\DemoBundle\Provider\BlackListProvider
 ```
 
 Example of the provider class:
-```
+```php
 <?php
 
 namespace Acme\DemoBundle\Provider;
