@@ -1,7 +1,7 @@
 GTBlackListBundle
 =================
 
-Symfony 2 bundle for the Black list IP in your application
+Symfony2 bundle for the Black list IP in your application
 
 
 ## Configuration
