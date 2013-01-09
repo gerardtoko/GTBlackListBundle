@@ -35,7 +35,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  *
- * @package GTBlackListBundle
+ * @package AcmeDemoBundle
  * @author  Gerard Toko <gerard.toko@gmail.com>
  */
 class BlackListProvider implements InterfaceBlackListPorvider
@@ -45,7 +45,7 @@ class BlackListProvider implements InterfaceBlackListPorvider
 
     /**
      * 
-     * @param \GT\BlackListBundle\Tests\Provider\ContainerInterface $container
+     * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
      */
     public function __construct(ContainerInterface $container)
     {
