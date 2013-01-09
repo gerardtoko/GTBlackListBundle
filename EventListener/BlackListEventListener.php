@@ -1,16 +1,25 @@
 <?php
 
+/*
+ * This file is part of GTBlackListBundle.
+ *
+ * (c) Gerard TOKO <gerard.toko@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace GT\BlackListBundle\EventListener;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
-
-class RequestEventListener
+class BlackListEventListener
 {
 
     protected $container;
+    protected $addr;
 
 
     /**
@@ -46,14 +55,14 @@ class RequestEventListener
 
 		//get Data 
 		$blackListPorviderClass = $config["class"];
-		$blackListProvider = new $blackListPorviderClass();
+		$blackListProvider = new $blackListPorviderClass($this->container);
 		$data = $blackListProvider->getData();
 
 		//verification data type if it's array value
 		if (!is_array($data)) {
 		    throw new \Exception("the data provider must return an array for gt_black_list configuration");
 		}
-		$this->isAccessDenied($config["data"]);
+		$this->isAccessDenied($data);
 		break;
 
 	    case "array":
@@ -74,9 +83,22 @@ class RequestEventListener
     public function isAccessDenied($data)
     {
 	$addr = $this->getAddressRemote();
+
 	if (in_array($addr, $data)) {
 	    throw new AccessDeniedException("You are in the blacklist!");
 	}
+    }
+
+
+    /**
+     * 
+     * @param type $addr
+     * @return \GT\BlackListBundle\EventListener\BlackListEventListener
+     */
+    public function setAddressRemote($addr)
+    {
+	$this->addr = $addr;
+	return $this;
     }
 
 
@@ -86,7 +108,16 @@ class RequestEventListener
      */
     public function getAddressRemote()
     {
-	return $_SERVER["REMOTE_ADDR"];
+	$addr = "127.0.0.1";
+	if (!empty($this->addr)) {
+	    $addr = $this->addr;
+	} else {
+	    if (!empty($_SERVER["REMOTE_ADDR"])) {
+		$addr = $_SERVER["REMOTE_ADDR"];
+		$this->addr = $addr;
+	    }
+	}
+	return $addr;
     }
 
 }
