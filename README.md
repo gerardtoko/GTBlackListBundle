@@ -15,7 +15,7 @@ gt_black_list:
 ```
 
 ### Select Provider Class
-The provider class must implement ```InterfaceBlackListProvider```
+The provider class must implement ```InterfaceBlackListProvider```.
 The InterfaceBlackListProvider require the ```getData``` method for receive the datas. the ```getData``` Method must be returned a array.
 Example of configuration file yml:
 ```
