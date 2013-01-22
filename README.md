@@ -46,7 +46,7 @@ You must register the bundle in your kernel:
 ## Configuration
 
 ### Select Provider Array
-Example of configuration file yml:
+Example of configuration yml file:
 ```yml
 gt_black_list:
     provider: array
@@ -59,7 +59,7 @@ The InterfaceBlackListProvider require the ```getData``` method for receive the 
 
 The ```getData``` Method must be returned a array.
 
-Example of configuration file yml:
+Example of configuration yml file:
 ```yml
 gt_black_list:
     provider: class
