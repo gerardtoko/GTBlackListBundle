@@ -91,7 +91,7 @@ class BlackListProvider implements InterfaceBlackListPorvider
      */
     public function __construct(ContainerInterface $container)
     {
-	$this->container = $container;
+		$this->container = $container;
     }
 
     /**
@@ -100,9 +100,9 @@ class BlackListProvider implements InterfaceBlackListPorvider
      */
     public function getData()
     {
-	//put your code here
-	//the data can come of doctrine, propel etc...
-	return array("145.34.89.123", "145.34.134.23");
+		//put your code here
+		//the data can come of doctrine, propel etc...
+		return array("145.34.89.123", "145.34.134.23");
     }
 
 }
